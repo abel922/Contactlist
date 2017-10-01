@@ -1,0 +1,105 @@
+<div class="container-view">
+<nav class="navbar navbar-inverse">
+<div class="row">
+  <div class="container-fluid">
+  <div class="col-md-12">
+    <div class="title-header col-md-6">
+      <h1>CRUD Project</h1>
+    </div>
+    <div class="title-header col-md-6 log-out">
+      <a class="logout" href="#/logout">Log out</a>
+    </div>
+  </div>
+</div>
+</nav>
+<div class="alert alert-warning fade in col-md-12 alert-contact" style="padding:5px">
+  <div class="col-md-5">
+    <h3>Welcome user!</h3>
+    <strong>{{vm.userName}}</strong>
+    <p>Here you can create, delete, edit or view all your contact list.</p>
+  </div>
+  <div class="col-md-5">
+    <img style="float:right" width="100" height="100" src="assets/img/user.png" alt="user img">
+  </div>
+</div
+<div class="row" ng-controller="vm.ContactsCtrl">
+<div class="col-md-12" ng-show="vm.addFormShow">
+<h3>Add Contact</h3>
+<form ng-submit="vm.addContact();" name="contactForm">
+   <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" ng-minlength="3" name="contactName" ng-model="vm.contact.name" placeholder="Name" required>
+    <span style="color:Red" ng-show="contactForm.contactName.$dirty&&contactForm.contactName.$error.minlength"> Minimum 3 Characters Required </span>
+   </div>
+   <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" ng-minlength="10" name="contactEmail" ng-model="vm.contact.email" placeholder="Email" required>
+    <span style="color:Red" ng-show="contactForm.contactEmail.$dirty&&contactForm.contactEmail.$error.minlength"> Minimum 10 Characters Required </span>
+   </div>
+   <div class="form-group">
+    <label>Phone</label>
+    <input type="text" class="form-control" ng-model="vm.contact.phone" placeholder="Phone Number">
+   </div>
+   <button type="submit" ng-disabled="!vm.contact.name.length||!vm.contact.email.length||!vm.contact.phone.length" class="btn addcontact-btn btn-success">Add Contact</button>
+ </form>
+</div>
+<div class="col-md-12" ng-show="vm.editFormShow">
+<h3>Edit Contact</h3>
+<form ng-submit="vm.editContact();" name="editContactForm">
+  <div class="form-group">
+   <label>Name</label>
+   <input type="text" class="form-control" ng-minlength="3" name="contactName" ng-model="vm.name" placeholder="Name" required>
+   <span style="color:Red" ng-show="editContactForm.contactName.$dirty&&editContactForm.contactName.$error.minlength"> Minimum 3 Characters Required </span>
+  </div>
+  <div class="form-group">
+   <label>Email</label>
+   <input type="email" class="form-control" ng-minlength="10" name="contactEmail" ng-model="vm.email" placeholder="Email" required>
+   <span style="color:Red" ng-show="editContactForm.contactEmail.$dirty&&editContactForm.contactEmail.$error.minlength"> Minimum 10 Characters Required </span>
+  </div>
+   <div class="form-group">
+    <label>Phone</label>
+    <input type="text" class="form-control" ng-model="vm.phone" placeholder="Phone Number">
+   </div>
+   <button type="submit" class="btn editcontact-btn btn-info">Edit Contact</button>
+   <button type="button" ng-click="vm.showAddContact();" class="btn btn-warning">Show add contact form</button>
+ </form>
+</div>
+<div class="col-md-12 margintop">
+  <div class="col-md-12" style="padding:0">
+    <h3>Contact list</h3>
+  </div>
+  <div class="col-md-12" style="padding:0">
+    <form class="form">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search contact" ng-model="vm.searchContact">
+      </div>
+    </form>
+  </div>
+  <div class="alert alert-info fade in col-md-12" ng-if="vm.message">
+    <strong>Info: </strong> {{vm.message}}
+  </div>
+<div class="over-table">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="contact in vm.contacts | filter:vm.searchContact">
+        <td>{{contact.name}}</td>
+        <td>{{contact.email}}</td>
+        <td>{{contact.phone}}</td>
+        <td><a class="btn btn-primary" ng-click="vm.showEditContact(contact);">Edit</a></td>
+        <td><a class="btn del-but btn-danger" ng-click="vm.removeContact(contact);">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+</div>

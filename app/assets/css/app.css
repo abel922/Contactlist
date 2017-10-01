@@ -1,0 +1,84 @@
+/* app css stylesheet */
+body{
+  background-color:#337ab7;
+}
+
+.container-view{
+  background-color:#fff;
+  overflow: hidden;
+  padding: 15px;
+}
+.error-message{
+  color: white;
+  font-weight: bold;
+  background-color: #e64e4b;
+  padding: 5px;
+  border-radius: 5px;
+}
+.form-control{
+  margin-bottom:5px;
+}
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.show-effect {
+  opacity:1;
+  overflow: hidden;
+  transition: all 2s;
+}
+
+.over-table{
+  overflow-y: scroll;
+  height: 400px;
+  width: 100%;
+}
+
+.alert-contact{
+  padding: 0px 0 10px 10px;
+}
+
+.input{
+  padding: 20px 0;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.log-out{
+  margin: 30px 0;
+}
+
+.title-header{
+  text-align: center;
+  color:#fff;
+}
+
+.title-header a{
+  color: #fff;
+  font-weight: bold;
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.margintop{
+  margin-top:30px;
+}
+@media only screen and (max-width: 639px) and (min-width: 0px){
+.over-table{overflow-x: auto;}
+}

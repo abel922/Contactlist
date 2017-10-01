@@ -1,0 +1,23 @@
+{
+  "name": "ContactList",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Project CRUD doing a ContactList",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "firebase": "*",
+    "http-server": "^0.9.0"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "update-deps": "npm update",
+    "postupdate-deps": "bower update",
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1 ./app"
+  },
+  "dependencies": {
+    "angularfire": "^2.3.0",
+    "protractor": "^5.1.2"
+  }
+}
