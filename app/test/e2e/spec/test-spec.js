@@ -30,7 +30,7 @@ describe("Application Functionality Check", function () {
         applicationUtils.addContact(name, email, phone);
     });
 
-    it('Edit  first contact in contact list', function () {
+    it('Edit  last contact in contact list', function () {
         applicationUtils.editLastContact();
     });
 
